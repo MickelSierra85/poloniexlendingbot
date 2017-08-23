@@ -54,7 +54,7 @@ class AccountStats(Plugin):
         self.db.commit()
 
     def check_upgrade(self):
-        if self.get_db_version() < DB_VERSION:
+        if 0 < self.get_db_version() < DB_VERSION:
             # drop table and set version to 0 to reinitialize db to new version.
             self.db.execute(DB_DROP)
             self.set_db_version(0)
